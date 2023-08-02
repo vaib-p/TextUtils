@@ -1,6 +1,11 @@
 import React from 'react'
 
+
 export default function Navbar(props) {
+
+  const HandleMode= () => {
+
+  };
   return (
     <div>
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -21,7 +26,7 @@ export default function Navbar(props) {
       </ul>
       <div className="form-check form-switch">
   <input className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked/>
-  <label className="form-check-label" htmlFor="flexSwitchCheckChecked">Checked switch checkbox input</label>
+  <label className="form-check-label" onClick={HandleMode} htmlFor="flexSwitchCheckChecked">Enable DarkMode</label>
 </div>
     </div>
   </div>
