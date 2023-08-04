@@ -4,6 +4,7 @@ export default function TextForm(props) {
 
     const [text,setText] = useState("");
    
+   
     const TextChange =(event) =>{
        setText(event.target.value);
 
@@ -25,8 +26,10 @@ export default function TextForm(props) {
     <>
         <div>
             <div className="mb-3" style={props.myStyle}>
-            <h2 style={props.myStyle} >Enter Text to Analyze</h2>
+            <h2 className="my-5" style={props.myStyle} >Enter Text to Analyze</h2>
+            
             <textarea style={props.myStyle} className="form-control my-2" onChange={TextChange} value={text} rows="8"></textarea>
+            
             </div>
             <button style={props.myStyle} type="button" class="btn btn-primary"  onClick={HandleUpClick}>Convert to UpperCase</button>
             <button style={props.myStyle} type="button" class="btn btn-primary mx-2 "  onClick={HandleLoClick}>Convert to LowerCase</button>

@@ -6,11 +6,19 @@ import About from './Components/About';
 import Navbar from './Components/Navbar';
 import TextForm from './Components/TextForm';
 
-function App() {
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
 
+function App() {
+  
   const [myStyle,setmyStyle]=useState({
     color : 'black',
     backgroundColor : '#dee2e6'
+    
 
   });
 
@@ -36,17 +44,31 @@ function App() {
   }
   return (
     <>
+    <Router forceRefresh={true}>
     <Navbar title="TextUtils" mode={mode} togglemode={togglemode} myStyle={myStyle}  />
 
 
     
-   <div className='container'>
-    <TextForm mode={mode} togglemode={togglemode} myStyle={myStyle}  />
+    <div className='container'>
+    
+        <Switch>
+          <Route forceRefresh={true}exact path="/about">
+          <About mode={mode} togglemode={togglemode} myStyle={myStyle} />
+            
+            </Route>
+            <Route exact path="/">
+            <TextForm exact mode={mode} togglemode={togglemode} myStyle={myStyle}  />
+            </Route>
+          
+          
+        </Switch>
+    
+    
     </div>
-     {/*
-    <div>
-      <About />
-  </div>*/}
+    </Router>
+   
+      
+
     
     </>
   );
