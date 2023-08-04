@@ -1,14 +1,15 @@
 import React from 'react'
 
 
+
 export default function Navbar(props) {
 
   const HandleMode= () => {
-
+     
   };
   return (
     <div>
-      <nav className="navbar navbar-expand-lg bg-body-tertiary">
+      <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}>
   <div className="container-fluid">
     <a className="navbar-brand" href="/">{props.title}</a>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,9 +25,9 @@ export default function Navbar(props) {
         </li>
         
       </ul>
-      <div className="form-check form-switch">
-  <input className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked/>
-  <label className="form-check-label" onClick={HandleMode} htmlFor="flexSwitchCheckChecked">Enable DarkMode</label>
+      <div className={`form-check form-switch text-${props.mode==='light'? 'dark':'#000000'}`}>
+  <input className="form-check-input" onClick={props.togglemode} type="checkbox" role="switch" id="flexSwitchCheckChecked" checked/>
+  <label className="form-check-label"  htmlFor="flexSwitchCheckChecked">Enable DarkMode</label>
 </div>
     </div>
   </div>
